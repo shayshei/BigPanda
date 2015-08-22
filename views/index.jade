@@ -1,0 +1,16 @@
+//
+   Created by shs on 8/22/15.
+
+doctype html
+html(ng-app="GitHubApp")
+    head
+        title GitHub REST API
+        script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js")
+        script(type="text/javascript" src="/javascript/gitHubApp.js")
+        link(rel="stylesheet", href="/stylesheets/style.css")
+    body(ng-controller="RestApiCtrl")
+        div#status Current status: {{ status.status | capitalize }}
+        div#availability
+            | Availability:
+            ul
+                li(ng-repeat="msg in messages") {{ msg.created_on | date : 'medium' }}: {{ msg.status | capitalize }}: {{ msg.body | capitalize }}
